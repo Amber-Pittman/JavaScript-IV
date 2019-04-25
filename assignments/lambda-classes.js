@@ -1,33 +1,3 @@
-* We have a school to build here! This project will get you used to thinking about classes in JavaScript and building them from a brand new data set.
-* Lambda personnel can be broken down into three different types of `people`.
-  * **Instructors** - extensions of Person
-  * **Students** - extensions of Person
-  * **Project Managers** - extensions of Instructors
-* **IMPORTANT** - You'll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:
-
-```js
-const fred = new Instructor({
-  name: 'Fred',
-  location: 'Bedrock',
-  age: 37,
-  gender: 'male',
-  favLanguage: 'JavaScript',
-  specialty: 'Front-end',
-  catchPhrase: `Don't forget the homies`
-});
-```
-
-#### Project Manager
-
-* Now that we have instructors and students, we'd be nowhere without our PM's
-* ProjectManagers are extensions of Instructors
-* ProjectManagers have the following unique props:
-  * `gradClassName`: i.e. CS1
-  * `favInstructor`: i.e. Sean
-* ProjectManagers have the following Methods:
-  * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
-  * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
-  * 
 //#### Person
 
 // * First we need a Person class. This will be our `base-class`
@@ -70,9 +40,9 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${this.specialty}.`);
     }
     grade() {
-        console.log(`${student.name} receives a perfect score on ${this.specialty}!`);
-    }     // Should I change name to this.name?
-}
+        console.log(`${studentAttrs.name} receives a perfect score on ${this.specialty}!`);
+    }     
+};
 
 // #### Student
 
@@ -97,9 +67,49 @@ class Student extends Person {
         console.log(this.favSubjects); // double check that this does an array. I think this is wrong
     }
     PRAssignment() {
-        console.log(`${this.name} has submitted a PR for ${this.specialty}.`);
+        console.log(`${this.name} has submitted a PR for ${instrAttrs.specialty}.`);
     }
     sprintChallenge() {
-        console.log(`${this.name} has begun sprint challenge on ${this.specialty}.`);
+        console.log(`${this.name} has begun sprint challenge on ${instrAttrs.specialty}.`);
     }
-}
+};
+
+// #### Project Manager
+
+// * Now that we have instructors and students, we'd be nowhere without our PM's
+// * ProjectManagers are extensions of Instructors
+// * ProjectManagers have the following unique props:
+//   * `gradClassName`: i.e. CS1
+//   * `favInstructor`: i.e. Sean
+// * ProjectManagers have the following Methods:
+//   * `standUp` a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+//   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
+//   * 
+
+class Project Manager extends Instructor {
+    constructor(pmAttrs) {
+        super(pmAttrs);
+        this.gradClassName = pmAttrs.gradClassName;
+        this.favInstructor = pmAttrs.favInstructor;
+    }
+    standUp() {
+        console.log(`{this.name} announces to {this.gradClassName}, @channel standy times!​​​​​`);
+    }
+    debugsCode() {
+        console.log(`{this.name} debugs {studentAttrs.name}'s code on {studentAttrs.favSubjects}`)
+    }
+};
+
+
+// const example
+// ```js
+// const fred = new Instructor({
+//   name: 'Fred',
+//   location: 'Bedrock',
+//   age: 37,
+//   gender: 'male',
+//   favLanguage: 'JavaScript',
+//   specialty: 'Front-end',
+//   catchPhrase: `Don't forget the homies`
+// });
+//```
