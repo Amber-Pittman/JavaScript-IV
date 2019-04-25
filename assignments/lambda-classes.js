@@ -13,7 +13,7 @@ class Person {
         this.gender = attributes.gender;
     }
     speak() {
-        return `Hello, my name is ${this.name}, I am from ${this.location}.`;
+        console.log(`Hello, my name is ${this.name}, I am from ${this.location}.`);
     }
 };
 
@@ -67,10 +67,10 @@ class Student extends Person {
         console.log(this.favSubjects); // double check that this does an array. I think this is wrong
     }
     PRAssignment() {
-        console.log(`${this.name} has submitted a PR for ${instrAttrs.specialty}.`);
+        console.log(`${this.name} has submitted a PR for ${this.favSubjects}.`);
     }
     sprintChallenge() {
-        console.log(`${this.name} has begun sprint challenge on ${instrAttrs.specialty}.`);
+        console.log(`${this.name} has begun sprint challenge on ${this.favSubjects}.`);
     }
 };
 
@@ -111,8 +111,23 @@ const bruce = new Instructor({
   specialty: 'Front-end',
   catchPhrase: `Dont make me angry. You wouldnt like me when Im angry.`
 });
-console.log(bruce);
+console.log(bruce); //if you want the whole Object
 bruce.demo();
+bruce.grade();
+
+const tony = new Instructor({
+    name: 'Tony Stark',
+    location: 'NYC',
+    age: 42,
+    gender: 'male',
+    favLanguage: 'Sarcasm',
+    specialty: 'Deep Learning',
+    catchPhrase: `I'm a huge fan of the way you lose control and turn into an enormous 
+      green rage monster.`
+  });
+  console.log(bruce); //if you want the whole Object
+  tony.demo();
+  tony.grade();
 
 const amber = new Student({
     name: 'Amber Pittman',
@@ -124,6 +139,26 @@ const amber = new Student({
     favSubjects: ['Html', 'CSS', 'JavaScript']
 });
 
+console.log(amber); //if you want the whole Object
+amber.listsSubjects();
+amber.PRAssignment();
+amber.sprintChallenge();
+
+const bernie = new Student({
+    name: 'Bernie Sanders',
+    location: 'Burlington, VT',
+    age: 75,
+    gender: 'male',
+    previousBackground: 'Vermont Senator',
+    className: 'WEBPT6',
+    favSubjects: ['Universal Healthcare', 'Universal Education', 'Democratic Socialism']
+});
+
+console.log(bernie); //if you want the whole Object
+bernie.listsSubjects();
+bernie.PRAssignment();
+bernie.sprintChallenge();
+
 const charletta = new ProjectManager({
     name: 'Charletta Bullard',
     location: 'NYC',
@@ -132,3 +167,18 @@ const charletta = new ProjectManager({
     gradClassName: 'WEB17',
     favInstructor: 'Josh Knell'
 });
+
+console.log(charletta); //if you want the whole Object
+charletta.standUp();
+
+const amelia = new ProjectManager({
+    name: 'Amelia Pittman',
+    location: 'Atlanta',
+    age: 2,
+    gender: 'female',
+    gradClassName: 'WEB98',
+    favInstructor: 'Tony Stark'
+});
+
+console.log(amelia); //if you want the whole Object
+amelia.debugsCode();
