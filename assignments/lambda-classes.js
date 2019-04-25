@@ -101,15 +101,23 @@ class Project Manager extends Instructor {
 };
 
 
-// const example
-// ```js
-// const fred = new Instructor({
-//   name: 'Fred',
-//   location: 'Bedrock',
-//   age: 37,
-//   gender: 'male',
-//   favLanguage: 'JavaScript',
-//   specialty: 'Front-end',
-//   catchPhrase: `Don't forget the homies`
-// });
-//```
+
+const bruce = new Instructor({
+  name: 'Bruce Banner',
+  location: 'NYC',
+  age: 37,
+  gender: 'male',
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't make me angry. You wouldn't like me when I'm angry.`
+});
+
+const amber = new Student({
+    name: 'Amber Pittman',
+    location: 'Atlanta',
+    age: 35,
+    gender: 'female',
+    previousBackground: 'Office Administrator and Sales',
+    className: 'WEBPT6',
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+})
