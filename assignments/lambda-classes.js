@@ -13,7 +13,7 @@ class Person {
         this.gender = attributes.gender;
     }
     speak() {
-        console.log(`Hello, my name is ${this.name}, I am from ${this.location}.`);
+        return `Hello, my name is ${this.name}, I am from ${this.location}.`;
     }
 };
 
@@ -109,8 +109,10 @@ const bruce = new Instructor({
   gender: 'male',
   favLanguage: 'JavaScript',
   specialty: 'Front-end',
-  catchPhrase: `Don't make me angry. You wouldn't like me when I'm angry.`
+  catchPhrase: `Dont make me angry. You wouldnt like me when Im angry.`
 });
+console.log(bruce);
+bruce.demo();
 
 const amber = new Student({
     name: 'Amber Pittman',
