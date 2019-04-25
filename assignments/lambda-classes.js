@@ -21,17 +21,17 @@ class CharacterStats extends GameObject {
   }
 };
 
-function Humanoid(grandchildAttrs) {
-    CharacterStats.call(this, grandchildAttrs);
-    this.team = grandchildAttrs.team;
-    this.weapons = grandchildAttrs.weapons;
-    this.language = grandchildAttrs.language;
+class Humanoid extends CharacterStats {
+    constructor(grandchildAttrs) {
+        super(grandchildAttrs);
+        this.team = grandchildAttrs.team;
+        this.weapons = grandchildAttrs.weapons;
+        this.language = grandchildAttrs.language;
     }
-    Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-    Humanoid.prototype.greet = function() {
+    greet() {
         return `${this.name} offers a greeting in ${this.language}.`;
   } 
+};
 
   const mage = new Humanoid({
     createdAt: new Date(),
