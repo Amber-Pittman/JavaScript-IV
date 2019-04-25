@@ -9,16 +9,17 @@ class GameObject {
     destroy() {
       return `${this.name} was removed from the game.`;
     }
+};
 
-function CharacterStats(childAttrs) {
-    GameObject.call(this, childAttrs);
-    this.healthPoints = childAttrs.healthPoints;
+class CharacterStats extends GameObject {
+    constructor(childAttrs) {
+        super(childAttrs);
+        this.healthPoints = childAttrs.healthPoints;
     }
-    CharacterStats.prototype = Object.create(GameObject.prototype);
-
-    CharacterStats.prototype.takeDamage = function () {
+    takeDamage () {
     return `${this.name} took damage.`;
   }
+};
 
 function Humanoid(grandchildAttrs) {
     CharacterStats.call(this, grandchildAttrs);
