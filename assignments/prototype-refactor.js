@@ -1,46 +1,39 @@
-/* 
-
-Prototype Refactor
-
-1. Copy and paste your code or the solution from yesterday
-
-2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
-
-*/
-
-function GameObject(attributes) {
+// CODE here for your Lambda Classes
+class GameObject {
+    constructor(attributes) {
     this.createdAt = attributes.createdAt;
     this.name = attributes.name;
     this.dimensions = attributes.dimensions;
   }
   
-    GameObject.prototype.destroy = function () {
+    destroy() {
       return `${this.name} was removed from the game.`;
     }
+};
 
-function CharacterStats(childAttrs) {
-    GameObject.call(this, childAttrs);
-    this.healthPoints = childAttrs.healthPoints;
+class CharacterStats extends GameObject {
+    constructor(childAttrs) {
+        super(childAttrs);
+        this.healthPoints = childAttrs.healthPoints;
     }
-    CharacterStats.prototype = Object.create(GameObject.prototype);
-
-    CharacterStats.prototype.takeDamage = function () {
+    takeDamage () {
     return `${this.name} took damage.`;
   }
+};
 
-function Humanoid(grandchildAttrs) {
-    CharacterStats.call(this, grandchildAttrs);
-    this.team = grandchildAttrs.team;
-    this.weapons = grandchildAttrs.weapons;
-    this.language = grandchildAttrs.language;
+class Humanoid extends CharacterStats {
+    constructor(grandchildAttrs) {
+        super(grandchildAttrs);
+        this.team = grandchildAttrs.team;
+        this.weapons = grandchildAttrs.weapons;
+        this.language = grandchildAttrs.language;
     }
-    Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-    Humanoid.prototype.greet = function() {
+    greet() {
         return `${this.name} offers a greeting in ${this.language}.`;
   } 
+};
 
-const mage = new Humanoid({
+  const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
         length: 2,
@@ -56,7 +49,7 @@ const mage = new Humanoid({
     language: 'Common Tongue',
     });
 
-    const swordsman = new Humanoid({
+  const swordsman = new Humanoid({
     createdAt: new Date(),
     dimensions: {
         length: 2,
@@ -73,7 +66,7 @@ const mage = new Humanoid({
     language: 'Common Tongue',
     });
 
-    const archer = new Humanoid({
+  const archer = new Humanoid({
     createdAt: new Date(),
     dimensions: {
         length: 1,
