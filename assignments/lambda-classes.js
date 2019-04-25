@@ -86,17 +86,17 @@ class Student extends Person {
 //   * `debugsCode` a method that takes in a student object and a subject and logs out `{name} debugs {student.name}'s code on {subject}`
 //   * 
 
-class Project Manager extends Instructor {
+class ProjectManager extends Instructor {
     constructor(pmAttrs) {
         super(pmAttrs);
         this.gradClassName = pmAttrs.gradClassName;
         this.favInstructor = pmAttrs.favInstructor;
     }
     standUp() {
-        console.log(`{this.name} announces to {this.gradClassName}, @channel standy times!​​​​​`);
+        console.log(`${this.name} announces to ${studentAttrs.className}, @channel standy times!​​​​​`);
     }
     debugsCode() {
-        console.log(`{this.name} debugs {studentAttrs.name}'s code on {studentAttrs.favSubjects}`)
+        console.log(`${this.name} debugs ${studentAttrs.name}'s code on ${studentAttrs.favSubjects}`)
     }
 };
 
@@ -119,5 +119,14 @@ const amber = new Student({
     gender: 'female',
     previousBackground: 'Office Administrator and Sales',
     className: 'WEBPT6',
-    favSubjects: ['Html', 'CSS', 'JavaScript'],
-})
+    favSubjects: ['Html', 'CSS', 'JavaScript']
+});
+
+const charletta = new ProjectManager({
+    name: 'Charletta Bullard',
+    location: 'NYC',
+    age: 35,
+    gender: 'female',
+    gradClassName: 'WEB17',
+    favInstructor: 'Josh Knell'
+});
