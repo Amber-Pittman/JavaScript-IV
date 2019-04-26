@@ -1,3 +1,5 @@
+// CODE here for your Lambda Classes
+
 //#### Person
 
 // * First we need a Person class. This will be our `base-class`
@@ -15,7 +17,7 @@ class Person {
     speak() {
         console.log(`Hello, my name is ${this.name}, I am from ${this.location}.`);
     }
-};
+}
 
 // #### Instructor
 
@@ -36,13 +38,14 @@ class Instructor extends Person {
         this.favLanguage = instrAttrs.favLanguage;
         this.catchPhrase = instrAttrs.catchPhrase;
     }
-    demo() {
-        console.log(`Today we are learning about ${this.specialty}.`);
+    demo(subject) {
+        console.log(`Today we are learning about ${subject}.`);
     }
-    grade() {
-        console.log(`${Student.name} receives a perfect score on ${this.specialty}!`);
+    grade(student, subject) {
+        console.log(`${student} receives a perfect score on ${subject}!`);
     }     
-};
+}
+
 
 // #### Student
 
@@ -64,13 +67,13 @@ class Student extends Person {
         this.favSubjects = studentAttrs.favSubjects;
     }
     listsSubjects() {
-        console.log(this.favSubjects);
+        console.log(`${this.favSubjects}`);
     }
-    PRAssignment() {
-        console.log(`${this.name} has submitted a PR for ${this.favSubjects}.`);
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for {subject}.`);
     }
-    sprintChallenge() {
-        console.log(`${this.name} has begun sprint challenge on ${this.favSubjects}.`);
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
 };
 
@@ -92,11 +95,11 @@ class ProjectManager extends Instructor {
         this.gradClassName = pmAttrs.gradClassName;
         this.favInstructor = pmAttrs.favInstructor;
     }
-    standUp() {
-        console.log(`${this.name} announces to ${Student.className}, @channel standy times!​​​​​`);
+    standUp(channel) {
+        console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
     }
-    debugsCode() {
-        console.log(`${this.name} debugs ${Student.name}'s code on ${this.specialty}`);
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student}'s code on ${subject}`);
     }
 };
 
@@ -107,18 +110,12 @@ const rando = new Person ({
     gender: 'male'
 });
 
-console.log(rando);
-rando.speak();
-
 const singer = new Person ({
     name: 'Siren Song',
     location: 'Nashville',
     age: 19,
     gender: 'female'
 });
-
-console.log(singer);
-singer.speak();
 
 const bruce = new Instructor({
   name: 'Bruce Banner',
@@ -129,9 +126,6 @@ const bruce = new Instructor({
   specialty: 'Front-end',
   catchPhrase: `Dont make me angry. You wouldnt like me when Im angry.`
 });
-console.log(bruce); //if you want the whole Object
-bruce.demo();
-bruce.grade();
 
 const tony = new Instructor({
     name: 'Tony Stark',
@@ -142,11 +136,7 @@ const tony = new Instructor({
     specialty: 'Deep Learning',
     catchPhrase: `I'm a huge fan of the way you lose control and turn into an enormous green rage monster.`
   });
-  console.log(tony); //if you want the whole Object
-  tony.demo();
-  tony.grade();
-  console.log(tony.catchPhrase);
-
+  
 const amber = new Student({
     name: 'Amber Pittman',
     location: 'Atlanta',
@@ -157,10 +147,6 @@ const amber = new Student({
     favSubjects: ['Html', 'CSS', 'JavaScript']
 });
 
-console.log(amber); //if you want the whole Object
-amber.listsSubjects();
-amber.PRAssignment();
-amber.sprintChallenge();
 
 const bernie = new Student({
     name: 'Bernie Sanders',
@@ -172,11 +158,6 @@ const bernie = new Student({
     favSubjects: ['Universal Healthcare', 'Universal Education', 'Democratic Socialism']
 });
 
-console.log(bernie); //if you want the whole Object
-bernie.listsSubjects();
-bernie.PRAssignment();
-bernie.sprintChallenge();
-
 const charletta = new ProjectManager({
     name: 'Charletta Bullard',
     location: 'NYC',
@@ -186,8 +167,7 @@ const charletta = new ProjectManager({
     favInstructor: 'Josh Knell'
 });
 
-console.log(charletta); //if you want the whole Object
-charletta.standUp();
+
 
 const amelia = new ProjectManager({
     name: 'Amelia Pittman',
@@ -198,5 +178,44 @@ const amelia = new ProjectManager({
     favInstructor: 'Tony Stark'
 });
 
-console.log(amelia); //if you want the whole Object
-amelia.debugsCode();
+
+console.log(tony);
+console.log(bruce);
+console.log(bernie);
+console.log(amber);
+console.log(charletta);
+console.log(amelia);
+console.log(rando);
+console.log(singer);
+
+console.log(charletta.standUp());
+console.log(amelia.debugsCode());
+console.log(bernie.listsSubjects());
+console.log(bernie.PRAssignment());
+console.log(bernie.sprintChallenge());
+console.log(amber.listsSubjects());
+console.log(amber.PRAssignment());
+console.log(amber.sprintChallenge());
+console.log(bruce.demo());
+console.log(tony.grade());
+console.log(bruce.demo());
+console.log(bruce.grade());
+console.log(rando.speak());
+console.log(singer.speak());
+
+
+console.log(tony.catchPhrase);
+console.log(tony.location);
+console.log(bruce.gender);
+console.log(bernie.previousBackground);
+console.log(amber.listsSubjects());
+console.log(tony.favLanguage);
+console.log(tony.demo('nanotechnology'));
+console.log(tony.grade(amber, 'artificial intelligence communications'));
+console.log(amelia.standup('WebPT6'));
+console.log(charletta.debugsCode(parker, 'Javascript'));
+console.log(amber.PRAssignment('CSS'));
+console.log(bernie.sprintChallenge('React'));
+console.log(bruce.catchPhrase);
+console.log(amelia.favInstructor);
+console.log(amber.grade);
