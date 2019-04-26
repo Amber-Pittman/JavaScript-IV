@@ -15,7 +15,7 @@ class Person {
         this.gender = attributes.gender;
     }
     speak() {
-        console.log(`Hello, my name is ${this.name}, I am from ${this.location}.`);
+        return `Hello, my name is ${this.name}, I am from ${this.location}.`;
     }
 }
 
@@ -39,10 +39,10 @@ class Instructor extends Person {
         this.catchPhrase = instrAttrs.catchPhrase;
     }
     demo(subject) {
-        console.log(`Today we are learning about ${subject}.`);
+        return `Today we are learning about ${subject}.`;
     }
     grade(student, subject) {
-        console.log(`${student} receives a perfect score on ${subject}!`);
+        return `${student.name} receives a perfect score on ${subject}!`;
     }     
 }
 
@@ -67,13 +67,13 @@ class Student extends Person {
         this.favSubjects = studentAttrs.favSubjects;
     }
     listsSubjects() {
-        console.log(`${this.favSubjects}`);
+        return `${this.favSubjects}`;
     }
     PRAssignment(subject) {
-        console.log(`${this.name} has submitted a PR for {subject}.`);
+        return `${this.name} has submitted a PR for ${subject}.`;
     }
     sprintChallenge(subject) {
-        console.log(`${this.name} has begun sprint challenge on ${subject}.`);
+        return `${this.name} has begun sprint challenge on ${subject}.`;
     }
 };
 
@@ -96,10 +96,10 @@ class ProjectManager extends Instructor {
         this.favInstructor = pmAttrs.favInstructor;
     }
     standUp(channel) {
-        console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
+        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
     }
     debugsCode(student, subject) {
-        console.log(`${this.name} debugs ${student}'s code on ${subject}`);
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 };
 
@@ -124,7 +124,7 @@ const bruce = new Instructor({
   gender: 'male',
   favLanguage: 'JavaScript',
   specialty: 'Front-end',
-  catchPhrase: `Dont make me angry. You wouldnt like me when Im angry.`
+  catchPhrase: `Don't make me angry. You wouldn't like me when I'm angry.`
 });
 
 const tony = new Instructor({
@@ -144,7 +144,7 @@ const amber = new Student({
     gender: 'female',
     previousBackground: 'Office Administrator and Sales',
     className: 'WEBPT6',
-    favSubjects: ['Html', 'CSS', 'JavaScript']
+    favSubjects: ['Html', ' CSS', ' JavaScript']
 });
 
 
@@ -155,7 +155,7 @@ const bernie = new Student({
     gender: 'male',
     previousBackground: 'Vermont Senator',
     className: 'WEBPT6',
-    favSubjects: ['Universal Healthcare', 'Universal Education', 'Democratic Socialism']
+    favSubjects: ['Universal Healthcare', ' Universal Education', ' Democratic Socialism']
 });
 
 const charletta = new ProjectManager({
@@ -188,22 +188,19 @@ console.log(amelia);
 console.log(rando);
 console.log(singer);
 
-console.log(charletta.standUp());
-console.log(amelia.debugsCode());
+console.log(charletta.standUp("WebPT6"));
+console.log(amelia.debugsCode(amber, 'JavaScript'));
 console.log(bernie.listsSubjects());
-console.log(bernie.PRAssignment());
-console.log(bernie.sprintChallenge());
+console.log(bernie.PRAssignment("JavaScript-IV"));
+console.log(bernie.sprintChallenge("python"));
 console.log(amber.listsSubjects());
-console.log(amber.PRAssignment());
-console.log(amber.sprintChallenge());
-console.log(bruce.demo());
-console.log(tony.grade());
-console.log(bruce.demo());
-console.log(bruce.grade());
+console.log(amber.PRAssignment("Advanced JavaScript"));
+console.log(amber.sprintChallenge("JavaScript"));
+console.log(bruce.demo("Class Inheritance"));
+console.log(tony.grade(amber, 'React'));
+console.log(bruce.grade(bernie, 'javascript'));
 console.log(rando.speak());
 console.log(singer.speak());
-
-
 console.log(tony.catchPhrase);
 console.log(tony.location);
 console.log(bruce.gender);
@@ -211,11 +208,10 @@ console.log(bernie.previousBackground);
 console.log(amber.listsSubjects());
 console.log(tony.favLanguage);
 console.log(tony.demo('nanotechnology'));
-console.log(tony.grade(amber, 'artificial intelligence communications'));
-console.log(amelia.standup('WebPT6'));
-console.log(charletta.debugsCode(parker, 'Javascript'));
+console.log(tony.grade(amber, 'Artificial Intelligence Communications'));
+console.log(amelia.standUp('WebPT6'));
+console.log(charletta.debugsCode(bernie, 'Javascript'));
 console.log(amber.PRAssignment('CSS'));
 console.log(bernie.sprintChallenge('React'));
 console.log(bruce.catchPhrase);
 console.log(amelia.favInstructor);
-console.log(amber.grade);
