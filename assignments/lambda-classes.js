@@ -40,7 +40,7 @@ class Instructor extends Person {
         console.log(`Today we are learning about ${this.specialty}.`);
     }
     grade() {
-        console.log(`${studentAttrs.name} receives a perfect score on ${this.specialty}!`);
+        console.log(`${Student.name} receives a perfect score on ${this.specialty}!`);
     }     
 };
 
@@ -64,7 +64,7 @@ class Student extends Person {
         this.favSubjects = studentAttrs.favSubjects;
     }
     listsSubjects() {
-        console.log(this.favSubjects); // double check that this does an array. I think this is wrong
+        console.log(this.favSubjects);
     }
     PRAssignment() {
         console.log(`${this.name} has submitted a PR for ${this.favSubjects}.`);
@@ -93,14 +93,32 @@ class ProjectManager extends Instructor {
         this.favInstructor = pmAttrs.favInstructor;
     }
     standUp() {
-        console.log(`${this.name} announces to ${studentAttrs.className}, @channel standy times!​​​​​`);
+        console.log(`${this.name} announces to ${Student.className}, @channel standy times!​​​​​`);
     }
     debugsCode() {
-        console.log(`${this.name} debugs ${studentAttrs.name}'s code on ${studentAttrs.favSubjects}`)
+        console.log(`${this.name} debugs ${Student.name}'s code on ${this.specialty}`);
     }
 };
 
+const rando = new Person ({
+    name: 'Random Dude',
+    location: 'Silicon Valley',
+    age: 23,
+    gender: 'male'
+});
 
+console.log(rando);
+rando.speak();
+
+const singer = new Person ({
+    name: 'Siren Song',
+    location: 'Nashville',
+    age: 19,
+    gender: 'female'
+});
+
+console.log(singer);
+singer.speak();
 
 const bruce = new Instructor({
   name: 'Bruce Banner',
@@ -122,12 +140,12 @@ const tony = new Instructor({
     gender: 'male',
     favLanguage: 'Sarcasm',
     specialty: 'Deep Learning',
-    catchPhrase: `I'm a huge fan of the way you lose control and turn into an enormous 
-      green rage monster.`
+    catchPhrase: `I'm a huge fan of the way you lose control and turn into an enormous green rage monster.`
   });
-  console.log(bruce); //if you want the whole Object
+  console.log(tony); //if you want the whole Object
   tony.demo();
   tony.grade();
+  console.log(tony.catchPhrase);
 
 const amber = new Student({
     name: 'Amber Pittman',
